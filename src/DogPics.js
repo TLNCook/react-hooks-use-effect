@@ -5,17 +5,17 @@ import React, { useState, useEffect } from "react";
 function DogPics() {
   const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    console.log("useEffect");
+  useEffect(
+    () => {
+      setTimeout(() => setCount(0), 5000);
+      document.title = text;
     fetch("https://dog.ceo/api/breeds/image/random/3")
       .then((r) => r.json())
       .then((data) => {
-        console.log("setState");
         setImages(data.message);
       });
-  });
+  }, [text]);
 
-  console.log("render");
 
   return (
     <div>
